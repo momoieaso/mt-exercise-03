@@ -18,7 +18,7 @@ device=""
         --data $data/arnim \
         --words 100 \
         --checkpoint $models/model.pt \
-        --outf $samples/sample
+        --outf $samples/sample.txt
 )
 
 

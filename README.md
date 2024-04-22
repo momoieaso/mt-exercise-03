@@ -47,6 +47,11 @@ Generate (sample) some text from a trained model with:
 
     ./scripts/generate.sh
 
+Before visualizing, make sure pandas and matplotlib are installed on your system. Install with: 
+
+    pip install pandas
+    pip install matplotlib
+
 Create tables for the three different perplexities and line plots for the training and validation perplexity to visualize the results:
 
     cd scripts
