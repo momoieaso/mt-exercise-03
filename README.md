@@ -6,9 +6,11 @@ This repo shows how to train neural language models using [Pytorch example code]
 
 - This only works on a Unix-like system, with bash.
 - Python 3 must be installed on your system, i.e. the command `python3` must be available
-- Make sure virtualenv is installed on your system. To install, e.g.
+- Make sure virtualenv, pandas and matplotlib are installed on your system. To install, e.g.
 
     `pip install virtualenv`
+    `pip install pandas`
+    `pip install matplotlib`
 
 # Steps
 
@@ -68,20 +70,20 @@ Create tables for the three different perplexities and line plots for the traini
 **Reminder:**
 - Before training a model, update the main.py to adapt to the new data set, i.e. replace /tools/pytorch-examples/word_language_model/main.py (the old one) with the /scripts/main.py (the new one). 
 
-## `generate.sh`
-
-**Changes Made:**
-The script uses two different models for text generation:
-1. model_dropout_0.3.pt to generate a text file named sample_lowest_perplexity.txt.
-2. model_dropout_0.pt to generate a text file named sample_highest_perplexity.txt.
-
 ## `train.sh`
 
 **Updates:**
 1. Added a command to create a directory for log files.
-2. Defined five different dropout values (0, 0.1, 0.3, 0.6, and 0.8) and set up a loop to train a model for each value, logging the perplexity to the log files.
-3. Updated the embedding size and the number of hidden units to 250.
-4. Changed the log-interval to 98. 
+2. Changed the log-interval to 98. 
+3. Defined additionally five different dropout values (0, 0.1, 0.3, 0.6, and 0.8) and set up a loop to train a model for each value, logging the perplexity to the log files.
+4. Updated the embedding size and the number of hidden units to 250 in the loop.
+
+## `generate.sh`
+
+**Changes Made:**
+The script additionally uses two different models for text generation:
+1. model_dropout_0.3.pt to generate a text file named sample_lowest_perplexity.txt.
+2. model_dropout_0.pt to generate a text file named sample_highest_perplexity.txt.
 
 ## `plot.py`
 

@@ -15,6 +15,18 @@ device=""
 
 SECONDS=0
 
+echo "Training with default setting"
+logfile=$models/logs/perplexity.log 
+
+(cd $tools/pytorch-examples/word_language_model &&
+    CUDA_VISIBLE_DEVICES=$device OMP_NUM_THREADS=$num_threads python main.py --data $data/arnim \
+        --epochs 40 \
+        --log-interval 98 \
+        --emsize 200 --nhid 200 --dropout 0.5 --tied \
+        --save $models/model.pt \
+        --log-file $logfile
+)
+
 dropout_values=(0 0.1 0.3 0.6 0.8)
 
 for dropout in "${dropout_values[@]}"

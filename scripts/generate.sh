@@ -17,6 +17,15 @@ device=""
     CUDA_VISIBLE_DEVICES=$device OMP_NUM_THREADS=$num_threads python generate.py \
         --data $data/arnim \
         --words 100 \
+        --checkpoint $models/model.pt \
+        --outf $samples/sample
+)
+
+
+(cd $tools/pytorch-examples/word_language_model &&
+    CUDA_VISIBLE_DEVICES=$device OMP_NUM_THREADS=$num_threads python generate.py \
+        --data $data/arnim \
+        --words 100 \
         --checkpoint $models/model_dropout_0.3.pt \
         --outf $samples/sample_lowest_perplexity.txt
 )
